@@ -1,4 +1,4 @@
-# Select Statements
+# Basic Select Statements
 
 <br>
 <br>
@@ -19,109 +19,73 @@ Since relational query languages are compositional, when you run a query over re
 
 <br>
 
-### The Basics:
+### A Basic Query:
 
-Assume we have a database with two tables: we have a COLLEGE table that has columns labeled cName (college name), state, and  enrollment. We also have a table labeled STUDENT that has columns labeled sID (student ID), sName (student name), gpa, and sizeHS. Then the third table labeled APPLICATION, that has columns labeled sID, cName, major, and decision.
+Assume we have a database with three tables:
+1. A `MOVIE` table that has four columns labeled `mID` (movie ID), `Title`, `Year`, and `Director`.
 
-     These tables look like so:
+2. A `Reviewer` table that has two columns labeled `rID` (reviewer ID), and `Name`.
 
-                                                                        College
-cName
-state
-enrollment
-Stanford
-CA
-15 000
-Berkeley
-CA
-36 000
-MIT
-MA
-10 000
-Cornell
-NY
-21 000
+3. Lastly, a `Review` table that has four columns labeled `rID`, `mID`, `Star`, and `ratingDate`.
 
-                                                                        Student
-sID
-sName
-gpa
-sizeHS
-123
-Amy
-3.9
-1000
-234
-Bob
-3.4
-1600
-345
-Craig
-3.5
-500
-456
-Dorris
-3.9
-1000
+<br>
 
-                                                                    Application
-sID
-cName
-major
-decision
-123
-Stanford
-CS
-Y
-123
-Stanford
-EE
-N
-234
-Berkeley
-biology
-Y
-345
-MIT
-bioengineering
-Y
+*(This sample database can be viewed in the Introduction chapter of this book.)*
 
+---
 
-We’re going to do a basic query that finds the ID, name, and GPA of students whose GPA is greater than 3.6. Where the SELECT tells use what we want to get out of the query, the FROM tells us our table name, and the WHERE gives us the filtering condition.
+<br>
 
-     The query would look like this:
+We’re going to do a basic query that finds the `Title`, and `Year` of movies that were created after the year 2000. The `SELECT` tells us what we want to get out of the query, the `FROM` tells us our table name, and the `WHERE` gives us the filtering condition.
 
-     SELECT sID, sName, GPA
-     FROM Student
-     WHERE GPA > 3.6;
+The query would look like this:
 
-We would then get a table back that would have three columns labeled sID, SNAME, and gpa. It would then display all the students that meet the criteria.
+```sql
+SELECT Title, Year
+FROM Movie
+WHERE Year > 2000;
+```
 
+We would then get a table back that would have two columns labeled `Title`, and `Year`. It would then display all the movies that were created after the year 2000.
 
-Combing Two Relations:     Now let’s create a query that combines two relations, such as finding the student’s names and the majors for which they applied. We’re now involving the STUDENT table, and the APPLICATION table.
+<br>
 
-     Combining relations looks like this:
+### Combing Two Relations:
 
-     SELECT sName, major
-     FROM Student, Application
-     WHERE Student.sID = Application.sID;
+Now let’s create a query that combines two relations, such as finding movie titles, mID's and the rating that the movie recieved. We’re now involving the `Movie` table, and the `Review` table.
 
-The condition above is called a join condition and is saying that we want combine students with application records that have the same sID. We would then get a table as a result with two columns labeled sID, and major. It would then display all the students and their majors.
+Combining relations looks like this:
 
+```sql
+SELECT mID, Title, Rating
+FROM Movie, Review
+WHERE  Movie.mID = Review.mID;
+```
 
-Combing Two Relations w/ a Condition:     The next query is going to find the names and GPA of students whose high school class was less than 1000, and who applied for CS at Stanford.
+The condition above is called a **join** condition and is saying that we want to combine movies with review statistics that have the same `mID`. We would then get a table as a result with three columns labeled `mID`, `Title`, and `Rating`. It would then display all the movies with their `mID` and their `Rating`.
 
-     It would look like this:
+<br>
 
-     SELECT sName, gpa, decision
-     FROM Student, Application
-     WHERE Student.sID = Application.sID
-          and sizeHS < 1000 and major = ‘CS' and cName = ‘Stanford’;
+### Combing Two Relations w/ a Condition:
 
-So in this case, we are looking for SNAME, gpa, and decision. We are looking inside the STUDENT and APPLICATION tables, and we have a join condition making sure that we are matching up the same students in each table. We are filtering the results based on size of high school, their major, and the college they applied to. We would then get a table with the results of the query. The results would include all students who applied to Stanford with a major of CS, and whose high school was less than 1000.
+The next query is going to find the `Title`, `mID` and `Rating` of movies that were created before the year 2000, and `Rating` is greater than 2.
 
+It would look like this:
 
-Combining Three Relations:     This time we are going to combine all three relations, and we’re going to get a table with the results of all the student’s student IDs, names, college, major, GPA, and decision.
+```sql
+SELECT mID, Title, Rating
+FROM Movie, Review
+WHERE Movie.mID = Review.mID
+    and Rating > 2 and Year < 2000;
+```
+
+So in this case, we are looking for `mID`, `Title`, and `Rating`. We are looking inside the `Movie` and `Review` tables, and we have a join condition making sure that the query knows the `mID` in the `Movie` table is the same `mID` in the `Review` table. We are filtering the results based on the year the movie was created, and the rating it recieved. We would then get a table with the results of the query. The results would include all movies that were created before the year 2000, with a rating greater than 2.
+
+<br>
+
+### Combining Three Relations:
+
+This time we are going to combine all three relations, and we’re going to get a table with the results of all the student’s student IDs, names, college, major, GPA, and decision.
 
      It would look like this:
 
@@ -132,7 +96,9 @@ Combining Three Relations:     This time we are going to combine all three relat
 Notice how in the SELECT and WHERE statements, we specify which table we want to pull some of the attributes out of. Since there is more than one table with sID and cName, we need to specify which table we want to pull it out of. It doesn’t really matter, but if we don’t we will get an error because it confuses the computer.
 
 
-Sorting Table Results:     SQL by default does not order table results in any particular order. However, if we specify a specific order that we want, we can get results sorted by a specific attribute, or set of attributes. Say we want to sort all of our students by descending GPA. In order to do this, we need to add an additional clause called the ORDER BY clause. If we want to get a descending order, we write what we want to search for and then use the keyword DESC.
+### Sorting Table Results:
+
+SQL by default does not order table results in any particular order. However, if we specify a specific order that we want, we can get results sorted by a specific attribute, or set of attributes. Say we want to sort all of our students by descending GPA. In order to do this, we need to add an additional clause called the ORDER BY clause. If we want to get a descending order, we write what we want to search for and then use the keyword DESC.
 
      It would look like this:
 
@@ -144,7 +110,9 @@ Sorting Table Results:     SQL by default does not order table results in any pa
 If we wanted to have it sort by additional attributes, we would just put a comma after DESC, and add another attribute. However, SQL defaults to ascending order, so you need to specify what you prefer for any additional attributes that you add.
 
 
-Doing Arithmetic within Select Statements:     While doing a SELECT statement, SQL allows for doing arithmetic operations. Say we want to find all the student’s attributes, but add it to a scaled GPA. Where we are going to boost their GPA if they are from a big high school, and reduce it if they are from a small one.
+### Doing Arithmetic within Select Statements:
+
+While doing a SELECT statement, SQL allows for doing arithmetic operations. Say we want to find all the student’s attributes, but add it to a scaled GPA. Where we are going to boost their GPA if they are from a big high school, and reduce it if they are from a small one.
 
      The query would look like this:
 

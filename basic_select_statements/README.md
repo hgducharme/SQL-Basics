@@ -85,45 +85,55 @@ So in this case, we are looking for `mID`, `Title`, and `Rating`. We are looking
 
 ### Combining Three Relations:
 
-This time we are going to combine all three relations, and we’re going to get a table with the results of all the student’s student IDs, names, college, major, GPA, and decision.
+This time we are going to combine all three relations, and we’re going to get a table with the results of every `mID`, `Title`, `Year`, reviewer `Name`, and `Rating`.
 
-     It would look like this:
+It would look like this:
 
-     SELECT Student.sID, sName, gpa, Application.cName, decision
-     FROM Student, Application, College
-     WHERE Student.sID = Application.sID and Application.cName = College.cName;
+```sql
+SELECT Movie.mID, Title, Year, Name, Reviewer.rID, Rating
+FROM Movie, Reviewer, Review
+WHERE Movie.mID = Review.mID and Reviewer.rID = Review.rID;
+```
 
-Notice how in the SELECT and WHERE statements, we specify which table we want to pull some of the attributes out of. Since there is more than one table with sID and cName, we need to specify which table we want to pull it out of. It doesn’t really matter, but if we don’t we will get an error because it confuses the computer.
+Notice how in the `SELECT` and `WHERE` statements, we specify which table we want to pull some of the attributes out of. Since there is more than one table with `mID` and `rID`, we need to specify which table we want to pull it out of. It doesn’t matter which table we specify, but if we don’t specify we will get an error because the computer doesn't know which table to pull from.
 
+<br>
 
 ### Sorting Table Results:
 
-SQL by default does not order table results in any particular order. However, if we specify a specific order that we want, we can get results sorted by a specific attribute, or set of attributes. Say we want to sort all of our students by descending GPA. In order to do this, we need to add an additional clause called the ORDER BY clause. If we want to get a descending order, we write what we want to search for and then use the keyword DESC.
+SQL by default does not order table results in any particular order. However, if we specify a specific order that we want, we can get results sorted by a specific attribute, or set of attributes. Say we want to sort all of our movies by descending `Rating`. In order to do this, we need to add an additional clause called the `ORDER BY` clause. If we want to get a descending order, we write what we want to search for and then use the keyword `DESC`.
 
-     It would look like this:
+It would look like this:
 
-     SELECT Student.sID, sName, gpa, Application.cName, decision
-     FROM Student, Application, College
-     WHERE Student.sID = Application.sID and Application.cName = College.cName
-     ORDER BY gpa DESC;
+```sql
+SELECT  Movie.mID, Title, Year, Name, Reviewer.rID, Rating
+FROM Movie, Reviewer, Review
+WHERE Movie.mID = Review.mID and Reviewer.rID = Review.rID
+    ORDER BY Rating DESC;
+```
 
-If we wanted to have it sort by additional attributes, we would just put a comma after DESC, and add another attribute. However, SQL defaults to ascending order, so you need to specify what you prefer for any additional attributes that you add.
+If we wanted to have it sort by additional attributes, we would just put a comma after ``DESC`, and add another attribute. However, SQL defaults to ascending order, so you need to specify which way you prefer for any additional attributes that you add.
 
+<br>
 
 ### Doing Arithmetic within Select Statements:
 
-While doing a SELECT statement, SQL allows for doing arithmetic operations. Say we want to find all the student’s attributes, but add it to a scaled GPA. Where we are going to boost their GPA if they are from a big high school, and reduce it if they are from a small one.
+While doing a `SELECT` statement, SQL allows for doing arithmetic operations. Say we want to find all the movie's attributes, but add it to a scaled `Rating`. Where we are going to scale the rating by 10 to get ratings that are in the teens.
 
-     The query would look like this:
+The query would look like this:
 
-     SELECT Student.sID, sName, gpa, sizeHS, gpa*(sizeHS/1000)
-     FROM Student;
+```sql
+SELECT Movie.mID, Title, Rating, Director, Rating + 10
+FROM Movie, Review;
+```
 
-We would then get a table with all of the above attributes, and then an additional column that shows the student’s GPA’s after being calculated and scaled according to the size of their high school. However, we will get a column labeled “ gpa*(sizeHS/1000) ”, and say that we wan’t to change it to a particular label.
+We would then get a table with all of the above attributes, and then an additional column that shows the movie's `Rating` after being scaled by 10. However, we will get a column labeled `Rating + 10`, but we want to change it to a different particular label.
 
-     We would just use the AS clause like so:
+We would just use the AS clause like so:
 
-     SELECT Student.sID, sName, gpa, sizeHS, gpa*(sizeHS/1000) AS scaledGPA
-     FROM Student;
+```sql
+SELECT Movie.mID, Title, Rating, Director, Rating + 10 AS ScaledRating
+FROM Movie, Review;
+```
 
-     # This would then give us a column labeled — scaledGPA
+We would then have a column labeled `ScaledRating` instead of `Rating + 10`.

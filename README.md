@@ -25,9 +25,9 @@ This book will cover the basics of SQL, and should help introduce beginners to S
 
 <br>
 
-**Reviewer**
+**User**
 
-| rID | Name             |
+| uID | Name             |
 | --- | ---------------- |
 | 201 | James Dean       |
 | 202 | Chris Anderson   |
@@ -42,7 +42,7 @@ This book will cover the basics of SQL, and should help introduce beginners to S
 
 **Review**
 
-| rId | mID | Rating | ratingDate |
+| uID | mID | Rating | ratingDate |
 | --- | --- | ------ | ---------- |
 | 201 | 101 | 2      | 2014-03-09 |
 | 201 | 101 | 4      | 2014-03-02 |

@@ -1,5 +1,7 @@
 # Basic Select Statements
 
+// TODO -- Create output tables, or at least acknowledge output results on all queries.
+
 <br>
 <br>
 
@@ -24,9 +26,9 @@ Since relational query languages are compositional, when you run a query over re
 Assume we have a database with three tables:
 1. A `MOVIE` table that has four columns labeled `mID` (movie ID), `Title`, `Year`, and `Director`.
 
-2. A `Reviewer` table that has two columns labeled `rID` (reviewer ID), and `Name`.
+2. A `User` table that has two columns labeled `uID` (User ID), and `Name`.
 
-3. Lastly, a `Review` table that has four columns labeled `rID`, `mID`, `Star`, and `ratingDate`.
+3. Lastly, a `Review` table that has four columns labeled `uID`, `mID`, `Star`, and `ratingDate`.
 
 <br>
 
@@ -85,17 +87,17 @@ So in this case, we are looking for `mID`, `Title`, and `Rating`. We are looking
 
 ### Combining Three Relations:
 
-This time we are going to combine all three relations, and we’re going to get a table with the results of every `mID`, `Title`, `Year`, reviewer `Name`, and `Rating`.
+This time we are going to combine all three relations, and we’re going to get a table with the results of every `mID`, `Title`, `Year`, User `Name`, and `Rating`.
 
 It would look like this:
 
 ```sql
-SELECT Movie.mID, Title, Year, Name, Reviewer.rID, Rating
-FROM Movie, Reviewer, Review
-WHERE Movie.mID = Review.mID and Reviewer.rID = Review.rID;
+SELECT Movie.mID, Title, Year, Name, User.uID, Rating
+FROM Movie, User, Review
+WHERE Movie.mID = Review.mID and User.uID = Review.uID;
 ```
 
-Notice how in the `SELECT` and `WHERE` statements, we specify which table we want to pull some of the attributes out of. Since there is more than one table with `mID` and `rID`, we need to specify which table we want to pull it out of. It doesn’t matter which table we specify, but if we don’t specify we will get an error because the computer doesn't know which table to pull from.
+Notice how in the `SELECT` and `WHERE` statements, we specify which table we want to pull some of the attributes out of. Since there is more than one table with `mID` and `uID`, we need to specify which table we want to pull it out of. It doesn’t matter which table we specify, but if we don’t specify we will get an error because the computer doesn't know which table to pull from.
 
 <br>
 
@@ -106,9 +108,9 @@ SQL by default does not order table results in any particular order. However, if
 It would look like this:
 
 ```sql
-SELECT  Movie.mID, Title, Year, Name, Reviewer.rID, Rating
-FROM Movie, Reviewer, Review
-WHERE Movie.mID = Review.mID and Reviewer.rID = Review.rID
+SELECT  Movie.mID, Title, Year, Name, User.uID, Rating
+FROM Movie, User, Review
+WHERE Movie.mID = Review.mID and User.uID = Review.uID
     ORDER BY Rating DESC;
 ```
 

@@ -1,10 +1,13 @@
 # Basic Syntax
 
 <br>
+<br>
 
 ### What is Structured Query Language?
 
 Insert here..
+
+You will find that there are multiple ways to write the same query, and some are better than others.
 
 <br>
 

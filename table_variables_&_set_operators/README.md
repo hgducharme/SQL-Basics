@@ -60,4 +60,70 @@ We first added the two table variables: `M1` and `M2` to seperate each instance.
 
 <br>
 
-### Union Set Operator
+### The Union Operator
+
+<br>
+
+The `UNION` operator allows us to create queries that will output a list of elements that come from multiple tables. Previously we could only seperate these elements into different columns. However, by using the `UNION` operator, we can get elements from different tables listed into a single column together.
+
+For example, if we wanted to get a single list of all the movie titles and reviewer names, we would create a query that looks like this:
+
+```sql
+SELECT Title FROM Movie
+UNION
+SELECT Name FROM Reviwer;
+```
+
+We would then get a table with only **one** column, and it would list each movie title and each reviewer name.
+
+<br>
+
+### Specifying a Column Name
+
+By default, SQL would pick label the column either `Title` or `Name`. If you wanted to specify a label for the column, you would use the `AS` operator.
+
+It would look like this:
+
+```sql
+SELECT Title AS list FROM Movie
+UNION
+SELECT Name AS list FROM Reviwer;
+```
+
+Notice how we placed `AS list` in each select clause, and this tells SQL to name the column `list`.
+
+<br>
+
+### The Intersect Operator
+
+The `INTERSECT` operator takes away the necessity to specify a joint relation. It automatically knows that each select statement in the query is for the same movie.
+
+If we wanted to create a query that searched for movies that were created before the year 2000, and had a `mID` of less than 105, we could use the `INTERSECT` operator.
+
+Our query would look like this:
+
+```sql
+SELECT Title FROM Movie WHERE Year < 2000
+INTERSECT
+SELECT Title FROM Movie WHERE mID < 105;
+```
+
+We would then get a table in return with all the movies that were created before the year 2000, and had a `mID` less than 105.
+
+<br>
+
+### The Except Operator
+
+The `EXCEPT` operator does exactly the opposite of the `INTERSECT` operator.
+
+Lets create a query that looks for movies that were created before the year 2000, but **do not** have a `mID` less than 105.
+
+Our query would look like this:
+
+```sql
+SELECT Title FROM Movie WHERE Year < 2000
+EXCEPT
+SELECT Title FROM Movie WHERE mID < 105;
+```
+
+In this case, the `EXCEPT` operator tells SQL to look for movies that were made before the year 2000, and then take away the movies with a `mID` less than 105. This then leaves us with a result of movies which were created before 2000, but have a `mID` greater than or equal to 105.

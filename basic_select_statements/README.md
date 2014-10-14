@@ -1,7 +1,5 @@
 # Basic Select Statements
 
-// TODO -- Create output tables, or at least acknowledge output results on all queries.
-
 <br>
 <br>
 
@@ -50,6 +48,8 @@ WHERE Year > 2000;
 
 We would then get a table back that would have two columns labeled `Title`, and `Year`. It would then display all the movies that were created after the year 2000.
 
+The resulting movies would include: *Gravity*, *Harry Potter*, *Cast Away*, and *Spiderman*.
+
 <br>
 
 ### Combing Two Relations:
@@ -82,6 +82,8 @@ WHERE Movie.mID = Review.mID
 ```
 
 So in this case, we are looking for `mID`, `Title`, and `Rating`. We are looking inside the `Movie` and `Review` tables, and we have a join condition making sure that the query knows the `mID` in the `Movie` table is the same `mID` in the `Review` table. We are filtering the results based on the year the movie was created, and the rating it recieved. We would then get a table with the results of the query. The results would include all movies that were created before the year 2000, with a rating greater than 2.
+
+The resulting movies would be: *Top Gun*, *Titanic*, *The Lion King*, and *The Godfather*.
 
 <br>
 

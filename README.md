@@ -4,6 +4,8 @@
 
 This book will cover the basics of SQL, and should help introduce beginners to SQL concepts. It is also a good documentation source when forgetting how the basic SQL syntax works.
 
+This book is open source, [visit the repository]() if you would like to contribute!
+
 <br>
 
 **Here is the example database that will be used throughout the book:**

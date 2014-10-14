@@ -5,9 +5,9 @@
 
 ### What is Structured Query Language?
 
-Insert here..
+Structured Query Langugae, or SQL, is a special-purpose programming language used to manage data within a relational database mangement system (RDMS).
 
-You will find that there are multiple ways to write the same query, and some are better than others.
+You will find that there are multiple ways to write the same query in SQL, and some ways are better than others.
 
 <br>
 

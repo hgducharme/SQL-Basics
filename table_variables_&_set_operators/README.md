@@ -1,6 +1,7 @@
 # Table Variabes & Set Operators
 
 <br>
+<br>
 
 ### What are they?
 
@@ -62,8 +63,6 @@ We first added the two table variables: `M1` and `M2` to seperate each instance.
 
 ### The Union Operator
 
-<br>
-
 The `UNION` operator allows us to create queries that will output a list of elements that come from multiple tables. Previously we could only seperate these elements into different columns. However, by using the `UNION` operator, we can get elements from different tables listed into a single column together.
 
 For example, if we wanted to get a single list of all the movie titles and reviewer names, we would create a query that looks like this:
@@ -110,6 +109,8 @@ SELECT Title FROM Movie WHERE mID < 105;
 
 We would then get a table in return with all the movies that were created before the year 2000, and had a `mID` less than 105.
 
+The resulting movies would be: *Top Gun*, *Titanic*, and *The Lion King*.
+
 <br>
 
 ### The Except Operator
@@ -127,3 +128,5 @@ SELECT Title FROM Movie WHERE mID < 105;
 ```
 
 In this case, the `EXCEPT` operator tells SQL to look for movies that were made before the year 2000, and then take away the movies with a `mID` less than 105. This then leaves us with a result of movies which were created before 2000, but have a `mID` greater than or equal to 105.
+
+The resulting movie would be: *The Godfather*.

@@ -22,7 +22,7 @@ SELECT *
 FROM (SELECT M.mID, Title, Year, Rating, Rating*(Year/1000.0) as scaledRating
     FROM Movie, Review
     WHERE M.mID = Review.mID) sR
-WHERE abs(sR.scaledRating) > 8
+WHERE abs(sR.scaledRating) > 8;
 ```
 This query is saying that it will `SELECT` all attributes `FROM` a table produced by a subquery. This subquery is going to produced a table that has the `mID`, `Title`, `Year`, `Rating`, then a scaled rating with a column name as `scaledRating`. The results of this subquery has the table variable name of `sR`. Then in the main query, we only want to output the movies where the absolute value (`abs()`) of the `scaledRating` is greater than 8.
 
@@ -37,7 +37,7 @@ Lets create a query that lists all the users and pairs them with their highest r
 The query would look like so:
 
 ```sql
--- TODO - I think this needs revision
+-- TODO - This needs to revised. Not sure if correct.
 SELECT uID, Title
 (SELECT Rating
 FROM User, Review

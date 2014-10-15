@@ -1,4 +1,4 @@
-# Table Variabes & Set Operators
+# Table Variables & Set Operators
 
 <br>
 <br>

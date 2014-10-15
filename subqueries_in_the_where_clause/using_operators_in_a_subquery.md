@@ -45,7 +45,7 @@ The resulting movie would be: *Gravity*.
 
 <br>
 
-### The All Keyword
+### The All Operator
 
 The `ALL` keyword tells us that instead of checking whether a value is in or not in the result of a subquery, we're going to check if the value has a certain relationship with `ALL` the results of a subquery.
 
@@ -65,7 +65,7 @@ The output table would include the movies: *Gravity*, and *Titanic*.
 
 <br>
 
-### The Any Keyword
+### The Any Operator
 
 The `ANY` keyword performs very similar to the `ALL` keyword, except instead of having to satisfy a condition with `ALL` of the elements of a set, it only has to satisfy a condition with at least one element of a set.
 

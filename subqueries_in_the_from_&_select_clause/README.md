@@ -32,23 +32,42 @@ We would then get output the following movies: *Titanic*, *Gravity*, *Harry Pott
 
 ### Using Subqueries in the Select Clause
 
-Lets create a query that lists all the users and pairs them with their highest rating, and the title of the movie that was rated.
+Lets create a query that lists all the users and pairs them with their highest rating that they have given.
 
 The query would look like so:
 
 ```sql
--- TODO - This needs to revised. Not sure if correct.
-SELECT uID, Title
+SELECT uID, Name
 (SELECT Rating
-FROM User, Review
-WHERE User.uID = Review.uID
+ FROM Movie, Review
+ WHERE User.uID = Review.uID
     and Movie.mID = Review.mID
     and Rating >= ALL
-        (SELECT Rating FROM Review
-        WHERE Movie.mID = Review.mID
-        and User.uID = Review.uID)) as highestRating
-
-FROM Movie, User;
+        (SELECT Rating FROM Movie, Review,
+         WHERE Movie.MID = Review.mID
+         and User.uID = Review.uID)) as hRating
+FROM User;
 ```
 
-[Insert explanation after this is revised]
+This query says that we are going to find `uID` and that user's `Name` from the `User` table, and then it runs a subquery. The subquery looks for a `Rating` inside the tables `Movie` and `Review`. We make sure to join the `uID` from the `User` table to the `uID` in the `Review` table. We also join the `mID` in the `Movie` and `Review` tables. We then choose the largest `Rating` among `ALL` the `Rating`s that are associated with that user. Lastly, we give the subquery result's a variable name, which takes the name of `hRating`, which stands for 'highest rating'.
+
+In other words, we would get a resutling table with each user's `uID` and `Name`. Then, it would have a column labeled `hRating` which has the highest rating that each individual user has ever done.
+
+Our query would ouput these results:
+
+| uID | Name             | hRating |
+| --- | ---------------- | ------- |
+| 201 | James Dean       | 4       |
+| 202 | Chris Anderson   | 4       |
+| 203 | Ashley Burley    | 2       |
+| 204 | Ralph Truman     | 4       |
+| 205 | Gordon Maximus   | 3       |
+| 206 | Sarah Rodgriguez | 3       |
+| 207 | Darrel Sherman   | 5       |
+| 208 | Lisa Jackson     | 2       |
+
+<br>
+
+### Important Note on Subqueries in the Select Clause
+
+When implenting a subquery in the `SELECT` clause, it is crucial that the subquery only returns exactly one value, because the result of that subquery is being used to only fill in one cell of the parent query.

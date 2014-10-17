@@ -12,7 +12,7 @@ The syntax looks like this:
 ```sql
 SELECT A1, A2, . . . , A(n)
 FROM R1, R2, . . . , R(m)
-WHERE condition
+WHERE condition;
 ```
 
 Since relational query languages are compositional, when you run a query over relations, you get a relation as a result. Thus, the result of the above select statement is a relation, but it doesn’t have a name. The schema of that relation is the set of attributes that are returned.

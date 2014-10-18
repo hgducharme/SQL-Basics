@@ -10,4 +10,5 @@
 * [The 'Join' Family Operators](the_join_family_operators/README.md)
    * [Inner Join](the_join_family_operators/the_inner_join_operator.md)
    * [Natural Join](the_join_family_operators/natural_join.md)
+   * [Outer Join](the_join_family_operators/outer_join.md)
 

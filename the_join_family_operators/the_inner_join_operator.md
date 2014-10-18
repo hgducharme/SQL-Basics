@@ -57,7 +57,7 @@ ON Movie.mID = Review.mID
 
 Our query selects all movies whose `Rating` is greater than 3, and whose `Year` is greater than 1990. It joins the `Movie` and `Review` tables, and the join relation is again combining the `Movie` and `Review` records where the `mID` matches. It then checks the condition and returns the tuples that satisfy the condition.
 
-We would then get the following movies in return: [INSERT HERE].
+We would then get the following movies in return: *Gravity*, *The Lion King*, *Titanic*, and *Cast Away*.
 
 The `ON` condition can also be ran using the `WHERE` clause, but it's more efficient to use the the `ON` operator for reasons I will not get into here.
 

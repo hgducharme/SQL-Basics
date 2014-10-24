@@ -147,14 +147,36 @@ If we were to run the query, we would get the result of: 0. Thus, that means the
 
 ### The `GROUP BY` Clause
 
-The `GROUP BY` clause is only used in conjuction with aggregation. Our first query is going to find the number of movies that were produced after the year 199 and before the year 1990, and it's going to do so by using grouping. Essentially what grouping does is it takes a relation and it partitions it by values of a given attribute or set of attributes.
+The `GROUP BY` clause is only used in conjuction with aggregation. Our first query is going to find the number of movies that were produced in each year, and it's going to do so by using grouping. Essentially what grouping does is it takes a relation and it partitions it by values of a given attribute or set of attributes.
 
 ```sql
-# FIX THIS
 SELECT Year, COUNT(*)
 FROM Movie
 GROUP BY Year;
 ```
 
-Specifically in this query we're taking the `Movie` relation and we're breaking it into two groups. Group one is the movies that have a value for `Year` which is before 1990, and group two is the movie which have a `Year` greater than 1990. Then for both groups we return one tuple in the result containing the `Year` for the group and the number of tuples in the group.
+Specifically in this query we're taking the `Movie` relation and we're breaking it into multiple groups. Each group is represented by each individual year. Then for each group we return one tuple in the result containing the `Year` for the group and the number of tuples in the group.
+
+We would then get the number 1 for each year, because there is no two movies in our database that were produced in the same year.
+
+<br>
+
+### The `HAVING` Clause
+
+The `HAVING` clause is another clause that is only used with aggregation. The having clause allows us to apply conditions to the results of the aggregate functions. The `HAVING` clause is placed after the `GROUP BY` clause and it allows us to check conditions that involve the entire group. In contrast, the `WHERE` clause applies only to only one tuple at a time.
+
+Let's create a query that finds directors which have produced more than one movie.
+
+Our query will look like this:
+
+```sql
+SELECT Director
+FROM Movie
+GROUP BY Director
+HAVING COUNT(*) > 1;
+```
+
+The above query is going to return all the directors in the table `Movie`, and create a group for each individual `Director`. For each group, it is going to check if the `Director` has produced more than one movie. If not, the `Director` will not be returned. 
+
+
 

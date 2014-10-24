@@ -12,4 +12,6 @@
    * [Natural Join](the_join_family_operators/natural_join.md)
    * [Outer Join](the_join_family_operators/outer_join.md)
 * [Aggregation](aggregation/README.md)
+   * [Aggregation Functions](aggregation/aggregation_functions.md)
+   * [Aggregation Clauses](aggregation/aggregation_clauses.md)
 

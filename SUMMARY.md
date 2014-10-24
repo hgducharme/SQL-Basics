@@ -14,4 +14,5 @@
 * [Aggregation](aggregation/README.md)
    * [Aggregation Functions](aggregation/aggregation_functions.md)
    * [Aggregation Clauses](aggregation/aggregation_clauses.md)
+* [Data Modification Statements](data_modification_statements/README.md)
 

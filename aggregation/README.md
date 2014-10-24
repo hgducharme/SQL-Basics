@@ -21,9 +21,9 @@ The syntax looks like this:
 ```sql
 SELECT A1, A2, . . . , A(n)
 FROM R1, R2, . . . , R(m)
-WHERE condition
-GROUP BY columns
-HAVING condition;
+WHERE <condition>
+GROUP BY <columns>
+HAVING <condition>;
 ```
 
 

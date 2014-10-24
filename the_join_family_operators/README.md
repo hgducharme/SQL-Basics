@@ -12,7 +12,7 @@ Like so:
 ```sql
 SELECT A1, A2, . . . , A(n)
 FROM R1, R2, . . . , R(m)
-WHERE condition;
+WHERE <condition>;
 ```
 
 However, there is a way to explicitly join two or more tables using one of the `JOIN` operators. There are a few different types, and they are listed below:

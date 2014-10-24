@@ -10,7 +10,7 @@ Take a look at the code block below:
 ```sql
 SELECT A1, A2, . . . , A(n)
 FROM R1, R2, . . . , R(m)
-WHERE condition;
+WHERE <condition>;
 ```
 
 All of the variables inside the `FROM` clause are called table variables. They help with making the query more readable, and they rename relations within the `FROM` clause when we have more than one instance of a relation.

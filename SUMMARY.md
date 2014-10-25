@@ -17,4 +17,5 @@
 * [Data Modification Statements](data_modification_statements/README.md)
    * [Insert Commands](data_modification_statements/insert_commands.md)
    * [Delete Commands](data_modification_statements/delete_commands.md)
+   * [Update Commands](data_modification_statements/update_commands.md)
 

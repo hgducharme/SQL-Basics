@@ -15,4 +15,6 @@
    * [Aggregation Functions](aggregation/aggregation_functions.md)
    * [Aggregation Clauses](aggregation/aggregation_clauses.md)
 * [Data Modification Statements](data_modification_statements/README.md)
+   * [Insert Commands](data_modification_statements/insert_commands.md)
+   * [Delete Commands](data_modification_statements/delete_commands.md)
 

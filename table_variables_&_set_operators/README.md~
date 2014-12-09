@@ -47,24 +47,23 @@ Notice how we added `M` after `Movie` inside the `FROM` clause. That is called a
 
 ### Adding Table Variables for Multiple Instances
 
-In this next query, we want to find all movies that have the exact same rating. In order to do that, we need to have two instances of `Review`. We will call the first instance `R1` and the second instance `R2`. We also need to include `Movie` in the `FROM` clause to get the movie `Title`.
+In this next query, we want to find all movies that have the exact same rating. In order to do that, we need to have two instances of `Movie`. We will call the first instance `M1` and the second instance `M2`.
 
 Our query would look like this:
 
 ```sql
-SELECT DISTINCT Movie.mID, title, R1.Rating
-FROM Movie M, Review R1, Review R2 
-WHERE R1.Rating = R2.Rating and R1.mID = M.mID and R1.mID <> R2.mID and R1.uID <> R2.uID;
-
+SELECT M1.mID, M1.Title, M1.Rating, M2.mID, M2.Title, M2.Rating
+FROM Movie M1, Movie M2
+Where M1.Rating = M2.Rating and M1.mID < M2.mID;
 ```
 
-We first added the two table variables: `R1` and `R2` to separate each instance. We are looking for the `mID`'s, `Title`'s, and `Rating`'s of each movie. We specify `DISTINCT` in the `WHERE` clause to remove duplicates. We then place a condition in the `WHERE` clause to specify that we want to output movies with the same rating. We include the join condition `R1.mID = M.mID` to make sure the movies are the same in each relation.
-We then specify two final clauses: `and R1.mID <> R2.mID and R1.uID <> R2.uID;`. `R1.mID <> R2.mID` tells the computer that the `R1.mID` is different from `R2.mID`, or that movie 1 needs to be different from movie 2. If we didn't specify this clause, we would get an output of movies that equal themselves, because movie 1 would have the same `Rating` as itself, thus satisfying the condition Likewise, `R1.uID <> R2.uID` makes sure we don't get back two instances of a review by the same reviewer.
+We first added the two table variables: `M1` and `M2` to seperate each instance. We are looking for the `mID`'s, `Title`'s, and `Rating`'s of each movie. We then place a condition in the `WHERE` clause to specify that we want to output movies with the same rating. Lastly, we specify a second clause: `and M1.mID < M2.mID;`. This is telling the computer that the `M1.mID` is different from `M2.mID`, or that movie 1 needs to be different from movie 2. If we didn't specify this clause, we would get an output of movies that equal themselves, because movie 1 would have the same `Rating` as itself, thus satisfying the condition.
+
 <br>
 
 ### The Union Operator
 
-The `UNION` operator allows us to create queries that will output a list of elements that come from multiple tables. Previously we could only separate these elements into different columns. However, by using the `UNION` operator, we can get elements from different tables listed into a single column together.
+The `UNION` operator allows us to create queries that will output a list of elements that come from multiple tables. Previously we could only seperate these elements into different columns. However, by using the `UNION` operator, we can get elements from different tables listed into a single column together.
 
 For example, if we wanted to get a single list of all the movie titles and reviewer names, we would create a query that looks like this:
 

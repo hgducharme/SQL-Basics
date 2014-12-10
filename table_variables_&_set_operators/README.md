@@ -71,7 +71,7 @@ For example, if we wanted to get a single list of all the movie titles and revie
 ```sql
 SELECT Title FROM Movie
 UNION
-SELECT Name FROM Reviwer;
+SELECT Name FROM User;
 ```
 
 We would then get a table with only **one** column, and it would list each movie title and each reviewer name.
@@ -87,7 +87,7 @@ It would look like this:
 ```sql
 SELECT Title AS list FROM Movie
 UNION
-SELECT Name AS list FROM Reviwer;
+SELECT Name AS list FROM User;
 ```
 
 Notice how we placed `AS list` in each select clause, and this tells SQL to name the column `list`.

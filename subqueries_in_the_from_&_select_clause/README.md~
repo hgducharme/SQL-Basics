@@ -32,7 +32,7 @@ We would then get output the following movies: *Titanic*, and *Gravity*.
 
 ### Using Subqueries in the Select Clause
 
-Lets create a query that lists all the users and pairs them with the highest rating that they have given.
+Lets create a query that lists all the users and pairs them with their highest rating that they have given.
 
 The query would look like so:
 

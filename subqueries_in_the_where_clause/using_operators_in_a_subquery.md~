@@ -33,10 +33,11 @@ We could write a query that looks like this:
 SELECT Title, Year
 FROM Movie M1
 WHERE NOT EXISTS (SELECT * FROM Movie M2
-                  WHERE M1.Year < M2.Year);
+                  WHERE M1.Year > M2.Year);
 ```
 
-This query says that we are going to find all movies where there does **not exist** another movie whose `Year` is greater than the first movie. 
+This query says that we are going to find all movies where there does **not exist** another movie whose `Year` is greater than the first movie.
+
 This would be a form of query that we could write whenever looking for the greatest value of some-sort.
 
 The resulting movie would be: *Gravity*.

@@ -52,7 +52,7 @@ In this next query, we want to find all movies that have the exact same rating. 
 Our query would look like this:
 
 ```sql
-SELECT DISTINCT Movie.mID, title, R1.Rating
+SELECT DISTINCT Movie.mID, Title, R1.Rating
 FROM Movie M, Review R1, Review R2 
 WHERE R1.Rating = R2.Rating and R1.mID = M.mID and R1.mID <> R2.mID and R1.uID <> R2.uID;
 

@@ -2,5 +2,11 @@
     "plugins": [
         "Google Analytics"
     ],
-    "pluginsConfig": {}
+    "pluginsConfig": {
+        "Google Analytics": {
+            "plugins": [
+                "ga"
+            ]
+        }
+    }
 }

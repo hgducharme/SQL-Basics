@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [Basic Syntax](basic_syntax/README.md)
 * [Basic Select Statements](basic_select_statements/README.md)
-* [Table Variables & Set Operators](table_variabes_&_set_operator/README.md)
+* [Table Variables & Set Operators](table_variabes_&_set_operators/README.md)
 * [Subqueries in the Where Clause](subqueries_in_the_where_clause/README.md)
    * [Using Operators in a Subquery](subqueries_in_the_where_clause/using_operators_in_a_subquery.md)
 * [Subqueries in the From & Select Clause](subqueries_in_the_from_&_select_clause/README.md)

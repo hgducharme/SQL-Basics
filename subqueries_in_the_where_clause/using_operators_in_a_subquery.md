@@ -5,7 +5,7 @@
 
 ### The Exist Operator & Correlated References
 
-The `EXIST` operator checks whether a subquery is empty or not, instead of checking whether values are in the subquery.
+The `EXISTS` operator checks whether a subquery is empty or not, instead of checking whether values are in the subquery.
 
 A correlated reference is where you use a value inside a subquery, that comes from *outside* that subquery.
 
@@ -36,7 +36,7 @@ WHERE NOT EXISTS (SELECT * FROM Movie M2
                   WHERE M1.Year < M2.Year);
 ```
 
-This query says that we are going to find all movies where there does **not exist** another movie whose `Year` is greater than the first movie. 
+This query says that we are going to find all movies where there does **not exist** another movie whose `Year` is greater than the first movie.
 This would be a form of query that we could write whenever looking for the greatest value of some-sort.
 
 The resulting movie would be: *Gravity*.

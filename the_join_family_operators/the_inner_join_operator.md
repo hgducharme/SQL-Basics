@@ -87,7 +87,7 @@ ON Movie.mID = Review.mID
 
 In this particular query, we would **possibly** get an error depending on the type of system that you are using. A few SQL sytems are: SQLite, MySQL, and Postrisk.
 
-If working in the Postrisk system, we would get an error when running the above query because Postrisk does not support multiple join operators. It requires all join operators to be binary, meaning it only can join two relations. If running on the Postrisk system, you could rewrite the query to look like this:
+If working in the Postrisk system, we would get an error when running the above query because Postrisk does not support multiple join operators. It requires all join operations to be binary, meaning it can only join two relations. If running on the Postrisk system, you could rewrite the query to look like this:
 
 ```sql
 SELECT Movie.mID, Title, Year, Director, Rating, User.uID, Name

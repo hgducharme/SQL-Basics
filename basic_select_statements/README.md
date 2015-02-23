@@ -5,7 +5,7 @@
 
 ### The Three Clauses:
 
-The select statement has three clauses: the `FROM` clause, the `WHERE` clause, and the `SELECT` clause. The basic concept is that the `FROM` clause identifies the relation that you want to query over, the condition is used to combine the relations and filter the relations, and the `SELECT` tells you what to return.
+The select statement has three clauses: the `FROM` clause, the `WHERE` clause, and the `SELECT` clause. The basic concept is that the `FROM` clause identifies the relation that you want to query over, the 'WHERE' condition is used to combine the relations and filter the relations, and the `SELECT` tells you what to return.
 
 The syntax looks like this:
 
@@ -59,7 +59,7 @@ Now let’s create a query that combines two relations, such as finding movie ti
 Combining relations looks like this:
 
 ```sql
-SELECT mID, Title, Rating
+SELECT Movie.mID, Title, Rating
 FROM Movie, Review
 WHERE  Movie.mID = Review.mID;
 ```
@@ -75,7 +75,7 @@ The next query is going to find the `Title`, `mID` and `Rating` of movies that w
 It would look like this:
 
 ```sql
-SELECT mID, Title, Rating
+SELECT Movie.mID, Title, Rating
 FROM Movie, Review
 WHERE Movie.mID = Review.mID
     and Rating > 2 and Year < 2000;
@@ -116,13 +116,13 @@ WHERE Movie.mID = Review.mID and User.uID = Review.uID
     ORDER BY Rating DESC;
 ```
 
-If we wanted to have it sort by additional attributes, we would just put a comma after ``DESC`, and add another attribute. However, SQL defaults to ascending order, so you need to specify which way you prefer for any additional attributes that you add.
+If we wanted to have it sort by additional attributes, we would just put a comma after `DESC`, and add another attribute. However, SQL defaults to ascending order, so you need to specify which way you prefer for any additional attributes that you add.
 
 <br>
 
 ### Doing Arithmetic within Select Statements:
 
-While doing a `SELECT` statement, SQL allows for doing arithmetic operations. Say we want to find all the movie's attributes, but add it to a scaled `Rating`. Where we are going to scale the rating by 10 to get ratings that are in the teens.
+While doing a `SELECT` statement, SQL allows for doing arithmetic operations. Say we want to find all the movie's attributes, but add to it a scaled `Rating`. Where we are going to scale the rating by 10 to get ratings that are in the teens.
 
 The query would look like this:
 

@@ -20,7 +20,7 @@ However, there is a way to explicitly join two or more tables using one of the `
 1. The `INNER JOIN` on *condition*
     * This kind of join operator takes the cross product of the tables and then applies a condition, and only taking the cross product elements that satisfy the condition given. It then eliminates all duplicate columns that are created.
 2. The `NATURAL JOIN`
-    * The `NATURAL JOIN` operator equates all columns with the same name in the tables that are being joined. It requires the values in the columns to be the same in order to keep the elements in the cross product. This type of join also eliminates and duplicate columns that are created.
+    * The `NATURAL JOIN` operator equates all columns with the same name in the tables that are being joined. It requires the values in the columns to be the same in order to keep the elements in the cross product. This type of join also eliminates any duplicate columns that are created.
 3. The `INNER JOIN USING(attrs)`
     * This again is an `INNER JOIN`, however this type of join takes a special clause called `USING` and listing attributes. This is sort of like the `NATURAL JOIN`, except you specifically state the attributes that you want to be equated.
 4. The `OUTER JOIN`

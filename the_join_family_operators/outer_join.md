@@ -49,7 +49,7 @@ Let's create another query that includes `null` values from both the `ratingDate
 Our query would look like this:
 
 ```sql
-SELECT mID, Title, Director, Rating, ratingDate
+SELECT Movie.mID, Title, Director, Rating, ratingDate
 FROM Movie FULL OUTER JOIN Review USING(mID);
 ```
 

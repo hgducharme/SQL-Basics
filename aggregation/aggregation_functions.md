@@ -97,22 +97,22 @@ We're going to write up a fairly complicated query this time. This query compute
 Our query will look like this:
 
 ```sql
-SELECT Post.avgRating, Pre.avgRating
+SELECT Post.avgRating - Pre.avgRating
 FROM
     (SELECT AVG(Rating) as avgRating
     FROM Review
     WHERE mID IN
-        (SELECT mID FROM Student WHERE Year >= 2000)) as Post
+        (SELECT mID FROM Movie WHERE Year >= 2000)) as Post
     (SELECT AVG(Rating) as avgRating
     FROM Review
     WHERE mID NOT IN
-        (SELECT mID FROM Student WHERE Year >= 2000)) as Pre;
+        (SELECT mID FROM Movie WHERE Year >= 2000)) as Pre;
 ```
 
-In the above query we are using subqueries in the `FROM` clause. Recall from earlier chapters that a subquery in the `FROM` clause allows you to write a select statement, and then use the result as if it were an actual database in the system. So we are going to compute two subqueries in the `FROM` clause, one of them computing the average `Rating` of movies that were produced on or after the year 2000, and the second one computing the average `Rating` of movies that were NOT produced on or after the year 2000.
+In the above query we are using subqueries in the `FROM` clause. Recall from earlier chapters that a subquery in the `FROM` clause allows you to write a select statement, and then use the result as if it were an actual relation in the database. So we are going to compute two subqueries in the `FROM` clause, one of them computing the average `Rating` of movies that were produced on or after the year 2000, and the second one computing the average `Rating` of movies that were NOT produced on or after the year 2000.
 
 So lets walk through the query:
-* The first subquery is says, let's find the movies whose `Year` is greater than or equal to 2000, let's compute their average `Rating`, and we will call it `avgRating`. We will take the whole result of this query and then name it `Post`, as in post-2000.
+* The first subquery says, let's find the movies whose `Year` is greater than or equal to 2000, let's compute their average `Rating`, and we will call it `avgRating`. We will take the whole result of this query and then name it `Post`, as in post-2000.
 * Similarly the second relation that we are computing in the `FROM` clause computes the average `Rating` of movies whose `Year` is not greater than or equal to 2000, so their `mID` is `NOT IN` the set of movies whose `Year` is greater than 2000. We then name the result of this query `Pre`, as in pre-2000.
 * To conclude, in the `FROM` clause we now have a relation called `Post` with an attribute called `avgRating`, and a second relation called `Pre` with an attribute called `avgRating`. Then, in the `SELECT` clause of the main query, we subtract the `avgRating` of movies from `Pre` from the `avgRating` of movies from `Post`.
 

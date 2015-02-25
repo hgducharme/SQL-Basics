@@ -20,7 +20,7 @@ Our query would look like this:
 ```sql
 SELECT *
 FROM (SELECT M.mID, Title, Year, Rating, Rating*(Year/1000.0) as scaledRating
-    FROM Movie, Review
+    FROM Movie M, Review
     WHERE M.mID = Review.mID) sR
 WHERE abs(sR.scaledRating) > 8;
 ```
@@ -38,18 +38,17 @@ The query would look like so:
 
 ```sql
 SELECT uID, Name
-(SELECT Rating
- FROM Movie, Review
+(SELECT DISTINCT Rating
+ FROM User, Review
  WHERE User.uID = Review.uID
-    and Movie.mID = Review.mID
     and Rating >= ALL
-        (SELECT Rating FROM Movie, Review,
-         WHERE Movie.MID = Review.mID
-         and User.uID = Review.uID)) as hRating
+        (SELECT Rating
+         FROM User, Review
+         WHERE User.uID = Review.uID)) as hRating
 FROM User;
 ```
 
-This query says that we are going to find `uID` and that user's `Name` from the `User` table, and then it runs a subquery. The subquery looks for a `Rating` inside the tables `Movie` and `Review`. We make sure to join the `uID` from the `User` table to the `uID` in the `Review` table. We also join the `mID` in the `Movie` and `Review` tables. We then choose the largest `Rating` among `ALL` the `Rating`s that are associated with that user. Lastly, we give the subquery result's a variable name, which takes the name of `hRating`, which stands for 'highest rating'.
+This query says that we are going to find `uID` and that user's `Name` from the `User` table, and then it runs a subquery. The subquery looks for a `Rating` inside the table `Review`. We make sure to join the `uID` from the `User` table to the `uID` in the `Review` table. We then choose the largest `Rating` among `ALL` the `Rating`s that are associated with that user. Lastly, we give the subquery result's a variable name, which takes the name of `hRating`, which stands for 'highest rating'.
 
 In other words, we would get a resutling table with each user's `uID` and `Name`. Then, it would have a column labeled `hRating` which has the highest rating that each individual user has ever done.
 

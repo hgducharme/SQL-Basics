@@ -53,9 +53,9 @@ We would then get the same movies we got before: *Gravity*, *The Lion King*, *Ti
 
 ### The `USING` Clause
 
-There is a feature in SQL that goes with the `NATURAL JOIN` operator that is often regarded as better practice than just using `NATURAL JOIN`. That feature is the `USING` clause, and it explicitly lists the attributes that should be equated when joing two relations.
+There is a feature in SQL that goes with the `NATURAL JOIN` operator that is often regarded as better practice than just using `NATURAL JOIN`. That feature is the `USING` clause, and it explicitly lists the attributes that should be equated when joining two relations.
 
-Using the previous query, it would no look like this:
+Using the previous `INNER JOIN` query, it would look like this:
 
 ```sql
 SELECT Title, Rating
@@ -64,7 +64,7 @@ ON Movie.mID = Review.mID
     and Rating > 3 and Year > 1990;
 ```
 
-Now if we changed this to using a `NATURAL JOIN`, it would look like this:
+Now if we changed this to using a `NATURAL JOIN` with `USING`, it would look like this:
 
 ```sql
 SELECT Title, Rating
@@ -76,4 +76,4 @@ Notice that we deleted `NATURAL` and only kept the word `JOIN`. We then specify 
 
 We can only put in the `USING` clause any attributes that appear in *both* tables. If we tried to put an attribute that was only in one table, the query would not run and would return an error.
 
-The reason this is considered better practice is because the `NATURAL JOIN` implicitly joins all columns that have the same name, when this may not be favored. For instance, it's possible to not realize that two relations have the same column name, and then the system will sort-of, under the convers, equate those values. Compared to specificaly stating which relations to join which will prevent the query from equating values that don't need to be equated. Also, in real applications there can often be upwards of 100 attributes in a relationship. Thus, making it more likely that you have attributes with the same name but aren't meant to get equated.
+The reason this is considered better practice is because the `NATURAL JOIN` implicitly joins all columns that have the same name, when this may not be favored. For instance, it's possible to not realize that two relations have the same column name, and then the system will sort-of, under the covers, equate those values. Compared to specificaly stating which relations to join which will prevent the query from equating values that don't need to be equated. Also, in real applications there can often be upwards of 100 attributes in a relationship. Thus, making it more likely that you have attributes with the same name but aren't meant to get equated.

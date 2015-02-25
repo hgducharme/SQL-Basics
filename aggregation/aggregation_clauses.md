@@ -21,7 +21,7 @@ We would then get the number 1 for each year, because there is no two movies in 
 
 ### The `HAVING` Clause
 
-The `HAVING` clause is another clause that is only used with aggregation. The having clause allows us to apply conditions to the results of the aggregate functions. The `HAVING` clause is placed after the `GROUP BY` clause and it allows us to check conditions that involve the entire group. In contrast, the `WHERE` clause applies only to only one tuple at a time.
+The `HAVING` clause is another clause that is only used with aggregation. The `HAVING` clause allows us to apply conditions to the results of the aggregate functions. The `HAVING` clause is placed after the `GROUP BY` clause and it allows us to check conditions that involve the entire group. In contrast, the `WHERE` clause applies only to one tuple at a time.
 
 Let's create a query that finds directors which have produced more than one movie.
 
@@ -34,6 +34,6 @@ GROUP BY Director
 HAVING COUNT(DISTINCT mID) > 1;
 ```
 
-The above query is going to get each `Director` from the `Movie` table, and then put them into their own groups. For each group, or `Director`, it is going to check to see if there are more than one `mID`s that are associated with that `Director`. If there is, the `Director` will be returned in the results. If not, then the `Director` will not be returned.
+The above query is going to get each `Director` from the `Movie` table, and then put them into their own groups. For each group, or `Director`, it is going to check to see if there are more than one `mID`'s that are associated with that `Director`. If there is, the `Director` will be returned in the results. If not, then the `Director` will not be returned.
 
 For this particular query, we would either get an error or a `null` value, because there is no director in our database that has produced more than one movie.

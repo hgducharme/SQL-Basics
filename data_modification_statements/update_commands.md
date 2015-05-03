@@ -25,4 +25,4 @@ SET ratingDate = '2014'
 WHERE uID in (SELECT uID FROM Review WHERE ISNULL ratingDate) and ISNULL ratingDate;
 ```
 
-We added the `UPDATE` statement, and we're telling SQL to `UPDATE` the `Review` table. Find all the users with a `uID` that satisfy the subquery in the `WHERE` clause, but only consider reviews that currently have no `ratingDate`. Then take the `ratingDate` for those users and give it a value of `'2014'`. We'll assume we don't know the exact date that they rated the movie, but we know it was in 2014.
+We added the `UPDATE` statement, and we're telling SQL to `UPDATE` the `Review` table. Find all the users with a `uID` that satisfy the subquery in the `WHERE` clause, but only consider reviews that currently have no `ratingDate`. Then take the `ratingDate` for those reviews and give it a value of `'2014'`. We'll assume we don't know the exact date that they rated the movie, but we know it was in 2014.

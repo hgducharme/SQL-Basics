@@ -68,3 +68,7 @@ This book is currently licensed under a Creative Commons license. For more infor
 | 207 | 106 | 4      | 2014-03-07 |
 | 207 | 102 | 5      | 2014-03-26 |
 | 208 | 105 | 2      | 2014-03-13 |
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hgducharme/sql-basics/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

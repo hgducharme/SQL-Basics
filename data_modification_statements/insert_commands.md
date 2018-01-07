@@ -3,7 +3,7 @@
 <br>
 <br>
 
-Let's assume that we want to insert a new movie into our database. We do this by saying we want to `INSERT INTO Movie`, we use the keyword values and we siply list the values we want to insert.
+Let's assume that we want to insert a new movie into our database. We do this by saying we want to `INSERT INTO Movie`, we use the keyword values and we simply list the values we want to insert.
 
 Like so:
 
@@ -32,7 +32,7 @@ FROM User
 WHERE uID NOT IN (SELECT uID FROM Review);
 ```
 
-Our query would the result the two users that we just inserted: Jonathan and Barbara. Well now that we have singled out the users who have not rated yet, lets insert those users into the `Review` table with the correct schema.
+Our query would be the result of the two users that we just inserted: Jonathan and Barbara. Well now that we have singled out the users who have not rated yet, lets insert those users into the `Review` table with the correct schema.
 
 Like this:
 

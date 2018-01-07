@@ -53,4 +53,4 @@ SELECT Movie.mID, Title, Director, Rating, ratingDate
 FROM Movie FULL OUTER JOIN Review USING(mID);
 ```
 
-We would then get a table of results in return will all the values for each column even the ones that are `null`.
+We would then get a table of results in return with all the values for each column even the ones that are `null`.

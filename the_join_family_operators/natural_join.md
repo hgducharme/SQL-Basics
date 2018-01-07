@@ -5,7 +5,7 @@
 
 ### Basic `NATURAL JOIN` Query
 
-Let's use one of our previous querys where we used the `INNER JOIN` to combine the `Movie` and `Review` in order to find the `Rating` that the each movie had.
+Let's use one of our previous queries where we used the `INNER JOIN` to combine the `Movie` and `Review` in order to find the `Rating` that the each movie had.
 
 It looked like this:
 

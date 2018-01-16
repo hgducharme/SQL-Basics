@@ -5,7 +5,7 @@
 
 ### Aggregation Functions
 
-The aggregate, or aggregation functions, initially appear inside the `SELECT` clause of a query, and they perform computations over sets of values in multiple rows of our relations. The basic aggregation functions suuported by every SQL systems are: `MIN`, `MAX`, `SUM`, `AVG`, and  `COUNT`.
+The aggregate, or aggregation functions, initially appear inside the `SELECT` clause of a query, and they perform computations over sets of values in multiple rows of our relations. The basic aggregation functions supported by every SQL systems are: `MIN`, `MAX`, `SUM`, `AVG`, and  `COUNT`.
 
 <br>
 

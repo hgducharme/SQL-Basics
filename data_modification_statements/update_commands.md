@@ -13,11 +13,11 @@ FROM User
 WHERE uID in (SELECT uID FROM Review WHERE ISNULL ratingDate);
 ```
 
-The query is going to look in the `User` relation and for each individual user, it will check for their `uID` in the `Review` table, and if the `ratingDate` returns true for `ISNULL`, then it will retrn that user in the end result.
+The query is going to look in the `User` relation and for each individual user, it will check for their `uID` in the `Review` table, and if the `ratingDate` returns true for `ISNULL`, then it will return that user in the end result.
 
 If we ran the query, our results would include the users "Darrel Sherman", and "Chris Anderson", with a `uID` of 207 and 202 respectively.
 
-Well no we want to update the `ratingDate` for these two individuals in the `Review` table. We would have to edit our query a little bit and have it look like this:
+Well now we want to update the `ratingDate` for these two individuals in the `Review` table. We would have to edit our query a little bit and have it look like this:
 
 ```sql
 UPDATE Review

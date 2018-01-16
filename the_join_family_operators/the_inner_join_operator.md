@@ -59,7 +59,7 @@ Our query selects all movies whose `Rating` is greater than 3, and whose `Year` 
 
 We would then get the following movies in return: *Gravity*, *The Lion King*, *Titanic*, and *Cast Away*.
 
-The `ON` condition can also be ran using the `WHERE` clause, but it's more efficient to use the the `ON` operator for reasons I will not get into here.
+The `ON` condition can also be ran using the `WHERE` clause, but it's more efficient to use the `ON` operator for reasons I will not get into here.
 
 <br>
 

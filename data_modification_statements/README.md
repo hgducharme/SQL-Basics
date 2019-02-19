@@ -5,7 +5,7 @@
 
 ### Inserting Data
 
-In SQL, there are statements for inserting data, deleting data, and modifying data in a databse. For inserting data, there are two methods:
+In SQL, there are statements for inserting data, deleting data, and modifying data in a database. For inserting data, there are two methods:
 
 ```sql
 INSERT INTO <table>

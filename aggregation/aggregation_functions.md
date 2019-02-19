@@ -116,4 +116,4 @@ So lets walk through the query:
 * Similarly the second relation that we are computing in the `FROM` clause computes the average `Rating` of movies whose `Year` is not greater than or equal to 2000, so their `mID` is `NOT IN` the set of movies whose `Year` is greater than 2000. We then name the result of this query `Pre`, as in pre-2000.
 * To conclude, in the `FROM` clause we now have a relation called `Post` with an attribute called `avgRating`, and a second relation called `Pre` with an attribute called `avgRating`. Then, in the `SELECT` clause of the main query, we subtract the `avgRating` of movies from `Pre` from the `avgRating` of movies from `Post`.
 
-If we were to run the query, we would get the result of: 0. Thus, that means the average `Rating` of movies produced before the year 2000 is exactly the same as the average `Rating` of movies produced on or after the yeary 2000.
+If we were to run the query, we would get the result of: 0. Thus, that means the average `Rating` of movies produced before the year 2000 is exactly the same as the average `Rating` of movies produced on or after the year 2000.

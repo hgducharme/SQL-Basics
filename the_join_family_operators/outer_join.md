@@ -27,7 +27,7 @@ Notice that we changed the `INNER JOIN` to a `RIGHT OUTER JOIN` operator. We wou
 
 You can also abbreviate the `RIGHT OUTER JOIN` to just `<LEFT/RIGHT> JOIN` and it will produce the same results. On top of that, the `OUTER` join can also be combined with the `NATURAL JOIN` by joining relations like this: `NATURAL <LEFT/RIGHT> OUTER JOIN`.
 
-In our previous query, we checked to see if a tuple in the `Review` table matched the tuple in the `Movie` table. Now what if we wanted to do it the other way arround? For example, check to see if a tuple in the `Movie` table matches a tuple in the `Review` table. You might assume that we could just switch the relations around and put `Movie` on the right, and `Review` on the left. However, SQL actually has a counterpart to the `RIGHT OUTER JOIN` operator, and it is the `LEFT OUTER JOIN`.
+In our previous query, we checked to see if a tuple in the `Review` table matched the tuple in the `Movie` table. Now what if we wanted to do it the other way around? For example, check to see if a tuple in the `Movie` table matches a tuple in the `Review` table. You might assume that we could just switch the relations around and put `Movie` on the right, and `Review` on the left. However, SQL actually has a counterpart to the `RIGHT OUTER JOIN` operator, and it is the `LEFT OUTER JOIN`.
 
 It would look like this:
 
@@ -36,7 +36,7 @@ SELECT Movie.mID, Title, Director, Rating
 FROM Movie LEFT OUTER JOIN Review USING(mID);
 ```
 
-In the above query we are checking to see if the tuples in the `Movie` table match any tuples in the `Review` table. Instead of checking it the other way arround like in our previoius query. We are also including the `Director` names in this query, and since the `Director` tuples won't match any tuples in the `Review` table, they will be considered dangling tuples. However, recall that the `OUTER JOIN` operator includes dangling tuples in the result, so no need to worry!
+In the above query we are checking to see if the tuples in the `Movie` table match any tuples in the `Review` table. Instead of checking it the other way around like in our previous query. We are also including the `Director` names in this query, and since the `Director` tuples won't match any tuples in the `Review` table, they will be considered dangling tuples. However, recall that the `OUTER JOIN` operator includes dangling tuples in the result, so no need to worry!
 
 <br>
 

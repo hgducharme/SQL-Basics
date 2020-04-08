@@ -34,7 +34,7 @@ The above query is saying that the aggregation is going to look at the `Rating` 
 
 Our resulting movie would be *Top Gun*.
 
-Now lets go back to our `AVG` aggregation query again. We will again compute the average `Rating` of all the movies that were produced after the year 1995. However, we have to change up the query because some movies were rated more than once, and we don't want to include the duplicate ratings in our average rating computation. We only want to count the `Rating` one time for each movie. In order to do that, we need to use a subquery from where we select from `Review`, and the we just want to check for each movie whether their ID is among those whose year is greater than 1995.
+Now lets go back to our `AVG` aggregation query again. We will again compute the average `Rating` of all the movies that were produced after the year 1995. However, we have to change up the query because some movies were rated more than once, and we don't want to include the duplicate ratings in our average rating computation. We only want to count the `Rating` one time for each movie. In order to do that, we need to use a subquery from where we select from `Review`, and then we just want to check for each movie whether their ID is among those whose year is greater than 1995.
 
 Our query would look like this:
 

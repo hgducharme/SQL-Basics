@@ -8,7 +8,7 @@ This book will cover the basics of SQL, and should help introduce beginners to S
 
 **Contributing**
 
-This book is open source, so please feel free to visit the github repository to help contribute! If you notice any typos or errors in this book, you can fork the repo and open a pull request with the new and improved changes, or simply just open a new issue. Any contribution is greatly appreciated and it will help make this book better for those reading it after you!
+This book is open source, so please feel free to visit [the github repository](https://github.com/hgducharme/SQL-Basics) to help contribute! If you notice any typos or errors in this book, you can fork the repo and open a pull request with the new and improved changes, or simply just open a new issue. Any contribution is greatly appreciated and it will help make this book better for those reading it after you!
 
 **License**
 

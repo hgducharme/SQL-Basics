@@ -26,7 +26,7 @@ Assume we have a database with three tables:
 
 2. A `User` table that has two columns labeled `uID` (User ID), and `Name`.
 
-3. Lastly, a `Review` table that has four columns labeled `uID`, `mID`, `Star`, and `ratingDate`.
+3. Lastly, a `Review` table that has four columns labeled `uID`, `mID`, `Rating`, and `ratingDate`.
 
 <br>
 

@@ -26,7 +26,7 @@ FROM Movie NATURAL JOIN Review;
 
 <br>
 
-### `NATRUAL JOIN` with Additional Conditions
+### `NATURAL JOIN` with Additional Conditions
 
 Let's go back to our query using the `INNER JOIN` that finds the movies whose `Rating` is greater than 3, and was produced after the year 1990.
 

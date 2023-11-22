@@ -50,7 +50,7 @@ Let's now rewrite this query to use the `INNER JOIN` operator. Our query would l
 
 ```sql
 SELECT Title, Rating
-FROM Movie JOIN Rating
+FROM Movie JOIN Review
 ON Movie.mID = Review.mID
     and Rating > 3 and Year > 1990;
 ```

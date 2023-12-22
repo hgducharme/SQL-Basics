@@ -42,7 +42,7 @@ This condition can sometimes get fairly complicated, because it can include subq
 
 ### Updating Data
 
-Updating data is done through a command similar to the `DELETE FROM` command. It similarily operates on a single table, it then evaluates a condition over each tuple of the table, and when the condition is true, it will modify the tuple.
+Updating data is done through a command similar to the `DELETE FROM` command. It similarly operates on a single table, it then evaluates a condition over each tuple of the table, and when the condition is true, it will modify the tuple.
 
 It looks like this:
 
